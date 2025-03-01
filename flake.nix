@@ -54,7 +54,15 @@
         { pkgs, ... }:
         {
           nix.enable = true;
-          nix.settings.experimental-features = "nix-command flakes";
+          nix.gc = {
+            automatic = true;
+            options = "--delete-older-than 7d";
+          };
+          nix.optimise.automatic = true;
+          nix.settings = {
+            experimental-features = "nix-command flakes";
+            trusted-users = [ username ];
+          };
 
           nixpkgs.hostPlatform = "x86_64-darwin"; # or "aarch64-darwin"
 
