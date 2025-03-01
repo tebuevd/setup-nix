@@ -72,7 +72,10 @@
           system.keyboard.enableKeyMapping = true;
           system.keyboard.remapCapsLockToEscape = true;
           system.defaults = {
-            NSGlobalDomain.ApplePressAndHoldEnabled = false;
+            NSGlobalDomain = {
+              ApplePressAndHoldEnabled = false;
+              "com.apple.swipescrolldirection" = false; # turn off natural scrolling
+            };
             finder = {
               _FXShowPosixPathInTitle = true; # show full path in finder title
               AppleShowAllExtensions = true; # show all file extensions
