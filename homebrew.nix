@@ -13,6 +13,9 @@
       "google-chrome"
       "raycast"
       "reflect"
+      "signal"
+      "shottr"
+      "tableplus"
       "tailscale"
       "zed"
     ];
