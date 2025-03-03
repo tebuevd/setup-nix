@@ -11,6 +11,7 @@
       "firefox"
       "ghostty"
       "google-chrome"
+      "orion"
       "raycast"
       "reflect"
       "signal"
@@ -18,6 +19,7 @@
       "tableplus"
       "tailscale"
       "zed"
+      "zoom"
     ];
 
     masApps = {
