@@ -206,6 +206,16 @@
               ];
             };
           };
+
+          programs.ghostty = {
+            enable = true;
+            enableZshIntegration = true;
+            package = null; # use the homebrew version
+            settings = {
+              theme = "catppuccin-macchiato";
+              font-size = 20;
+            };
+          };
         };
     in
     {
