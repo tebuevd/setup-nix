@@ -13,15 +13,9 @@ This repository contains my personal Nix Darwin configuration for macOS. It uses
 
 ### Prerequisites
 
-1. Install Nix:
+1. Install Nix via Determinate Systems:
    ```bash
-   sh <(curl -L https://nixos.org/nix/install)
-   ```
-
-2. Enable experimental features:
-   ```bash
-   mkdir -p ~/.config/nix
-   echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
+   curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --determinate
    ```
 
 ### Installation

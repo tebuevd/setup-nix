@@ -3,9 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 
     nix-darwin = {
-      url = "github:LnL7/nix-darwin";
+      url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -30,6 +31,8 @@
       home-manager,
       mac-app-util,
       nix-darwin,
+
+      nix-homebrew,
       nix-vscode-extensions,
       nixpkgs,
     }:
@@ -40,6 +43,7 @@
         fullName = "Default Name";
         email = "default@example.com";
         githubEmail = "your.github.default.email@example.com";
+        architecture = "aarch64-darwin"; # or "x86_64-darwin" for Intel Macs
       };
 
       local = if builtins.pathExists ./local.nix then import ./local.nix else defaults;
@@ -49,22 +53,18 @@
       fullName = local.fullName;
       email = local.email;
       githubEmail = local.githubEmail;
+      architecture = local.architecture;
 
       configuration =
         { pkgs, ... }:
         {
-          nix.enable = true;
-          nix.gc = {
-            automatic = true;
-            options = "--delete-older-than 7d";
-          };
-          nix.optimise.automatic = true;
+          nix.enable = false; # required when using Determinate Systems' Nix
           nix.settings = {
             experimental-features = "nix-command flakes";
             trusted-users = [ username ];
           };
 
-          nixpkgs.hostPlatform = "x86_64-darwin"; # or "aarch64-darwin"
+          nixpkgs.hostPlatform = architecture;
 
           system.configurationRevision = self.rev or self.dirtyRev or null;
           system.activationScripts.postUserActivation.text = ''
@@ -132,6 +132,7 @@
             nixfmt-rfc-style
             nodejs_22
             python313
+            uv
             tmux
           ];
           home.sessionVariables = {
@@ -216,11 +217,21 @@
             fullName
             email
             githubEmail
+            architecture
             ;
         };
 
         modules = [
           ./modules/system.nix
+          nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              enable = true;
+              enableRosetta = architecture == "aarch64-darwin";
+              user = username;
+              autoMigrate = true;
+            };
+          }
           configuration
           mac-app-util.darwinModules.default
           home-manager.darwinModules.home-manager
