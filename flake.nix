@@ -100,6 +100,7 @@
 
           environment.systemPackages = [
             pkgs.devenv
+            pkgs.fzf
             pkgs.neofetch
             pkgs.vim
           ];
@@ -165,6 +166,11 @@
             enable = true;
             userName = local.fullName;
             userEmail = githubEmail;
+
+            aliases = {
+              "fixup" = "!git log -n 50 --pretty=format:\"%h %s\" --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup";
+            };
+
             ignores = [
               ".DS_Store"
             ];
