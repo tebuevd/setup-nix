@@ -235,7 +235,7 @@
                   set -g @dracula-show-battery false
                   set -g @dracula-show-powerline true
                   set -g @dracula-refresh-rate 10
-                  set -g @dracula-plugins "cpu-usage ram-usage"
+                  set -g @dracula-plugins "cpu-usage ram-usage battery"
                   set -g @dracula-battery-label false
                   set -g @dracula-show-battery-status true
                   set -g @dracula-no-battery-label " "
