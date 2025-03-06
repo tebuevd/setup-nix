@@ -24,6 +24,7 @@
       "shottr"
       "stats"
       "steam"
+      "superhuman"
       "tableplus"
       "tailscale"
       "vlc"
