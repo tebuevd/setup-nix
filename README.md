@@ -48,9 +48,9 @@ This repository contains my personal Nix Darwin configuration for macOS. It uses
    git update-index --assume-unchanged nix/local.nix
    ```
 
-5. Build and activate the configuration:
+5. Build and activate the configuration (`{hostname}` from `local.nix`):
    ```bash
-   darwin-rebuild switch --flake ~/.config/nix
+   nix run nix-darwin/master#darwin-rebuild -- switch --flake .#{hostname}
    ```
 
 ### Updating
