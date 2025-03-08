@@ -27,14 +27,12 @@
   outputs =
     inputs@{
       self,
-      firefox-addons,
       home-manager,
       mac-app-util,
       nix-darwin,
 
       nix-homebrew,
       nix-vscode-extensions,
-      nixpkgs,
     }:
     let
       defaults = {
@@ -117,7 +115,7 @@
         };
 
       homeconfig =
-        { pkgs, ... }:
+        { pkgs, config, ... }:
         {
           # this is internal compatibility configuration
           # for home-manager, don't change this!
@@ -139,7 +137,11 @@
           home.sessionVariables = {
             EDITOR = "vim";
           };
+
           home.file.".vimrc".source = ./vim_configuration;
+          home.file.".config/zed/settings.json".source =
+            config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/zed-config/settings.json";
+
           programs.zsh = {
             enable = true;
             shellAliases = {
