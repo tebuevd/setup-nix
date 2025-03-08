@@ -26,7 +26,11 @@
   // Languages and LSPs
 
   "languages": {
+    "JSON": {
+      "language_servers": ["json-language-server", "!nixd", "!nil"]
+    },
     "Nix": {
+      "language_servers": ["nixd", "!nil"],
       "formatter": {
         "external": {
           "command": "nixfmt", // or "alejandra"

@@ -18,10 +18,6 @@
     # Pin to a commit to make copilot extension works
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions/529e0a84346f34db86ea24203c0b2e975fefb4f2";
     mac-app-util.url = "github:hraban/mac-app-util";
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -30,9 +26,9 @@
       home-manager,
       mac-app-util,
       nix-darwin,
-
       nix-homebrew,
       nix-vscode-extensions,
+      nixpkgs,
     }:
     let
       defaults = {
@@ -102,6 +98,15 @@
             pkgs.neofetch
             pkgs.vim
           ];
+
+          # Make sudo TouchID work in Tmux
+          environment.etc = {
+            "pam.d/sudo_local".text = ''
+              # Managed by Nix Darwin
+              auth       optional       ${pkgs.pam-reattach}/lib/pam/pam_reattach.so ignore_ssh
+              auth       sufficient     pam_tid.so
+            '';
+          };
 
           imports = [
             ./homebrew.nix
