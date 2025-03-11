@@ -10,6 +10,7 @@
       "1password"
       "bruno"
       "cryptomator"
+      "cursor"
       "cyberduck"
       "firefox"
       "ghostty"

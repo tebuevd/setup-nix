@@ -57,12 +57,6 @@
             experimental-features = "nix-command flakes";
             trusted-users = [ username ];
           };
-          nix.settings.extra-substituters = [
-            "https://devenv.cachix.org"
-          ];
-          nix.settings.extra-trusted-public-keys = [
-            "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw"
-          ];
 
           nixpkgs.hostPlatform = architecture;
 
@@ -134,15 +128,16 @@
           # Let home-manager install and manage itself.
           programs.home-manager.enable = true;
           home.packages = with pkgs; [
-            code-cursor
             home-manager
             htop
             nil
             nixd
             nixfmt-rfc-style
             nodejs_22
+            pnpm_10
             python313
             uv
+            typescript
             tmux
           ];
           home.sessionVariables = {

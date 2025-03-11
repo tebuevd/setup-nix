@@ -14,7 +14,7 @@
 	// Editor
 
 	"buffer_font_size": 16,
-	"format_on_save": "prettier",
+	"format_on_save": "language_server",
 	"hard_tabs": true,
 	"tab_size": 2,
 	"ui_font_size": 16,
