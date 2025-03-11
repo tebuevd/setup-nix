@@ -57,6 +57,12 @@
             experimental-features = "nix-command flakes";
             trusted-users = [ username ];
           };
+          nix.settings.extra-substituters = [
+            "https://devenv.cachix.org"
+          ];
+          nix.settings.extra-trusted-public-keys = [
+            "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw"
+          ];
 
           nixpkgs.hostPlatform = architecture;
 
@@ -229,6 +235,8 @@
               theme = "catppuccin-macchiato";
               font-size = 18;
               font-thicken = true;
+              window-position-x = 0;
+              window-position-y = 0;
             };
           };
 
@@ -239,10 +247,14 @@
               {
                 plugin = dracula;
                 extraConfig = ''
+                  set -g @dracula-plugins "cpu-usage ram-usage battery time"
+
+                  set -g @dracula-time-format "%A, %d %b %Y %I:%M%p %Z"
+
                   set -g @dracula-show-battery false
                   set -g @dracula-show-powerline true
                   set -g @dracula-refresh-rate 10
-                  set -g @dracula-plugins "cpu-usage ram-usage battery"
+
                   set -g @dracula-battery-label false
                   set -g @dracula-show-battery-status true
                   set -g @dracula-no-battery-label " "
