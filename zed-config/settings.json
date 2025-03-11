@@ -1,44 +1,47 @@
 {
-  "load_direnv": "direct",
+	"load_direnv": "direct",
 
-  // AI
+	// AI
 
-  "assistant": {
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "claude-3-7-sonnet"
-    },
-    "version": "2"
-  },
+	"assistant": {
+		"default_model": {
+			"provider": "copilot_chat",
+			"model": "claude-3-7-sonnet"
+		},
+		"version": "2"
+	},
 
-  // Editor
+	// Editor
 
-  "ui_font_size": 16,
-  "buffer_font_size": 16,
-  "vim_mode": true,
+	"buffer_font_size": 16,
+	"format_on_save": "prettier",
+	"hard_tabs": true,
+	"tab_size": 2,
+	"ui_font_size": 16,
+	"vim_mode": true,
 
-  // Theme
+	// Theme
 
-  "theme": {
-    "mode": "system",
-    "light": "Dracula",
-    "dark": "Dracula"
-  },
+	"theme": {
+		"mode": "system",
+		"light": "Dracula",
+		"dark": "Dracula"
+	},
 
-  // Languages and LSPs
+	// Languages and LSPs
 
-  "languages": {
-    "JSON": {
-      "language_servers": ["json-language-server", "!nixd", "!nil"]
-    },
-    "Nix": {
-      "language_servers": ["nixd", "!nil"],
-      "formatter": {
-        "external": {
-          "command": "nixfmt", // or "alejandra"
-          "arguments": ["--quiet", "--"]
-        }
-      }
-    }
-  }
+	"languages": {
+		"JSON": {
+			"language_servers": ["json-language-server", "!nixd", "!nil"]
+		},
+		"Nix": {
+			"language_servers": ["nixd", "!nil"],
+			"formatter": {
+				"external": {
+					"command": "nixfmt", // or "alejandra"
+					"arguments": ["--quiet", "--"]
+				}
+			}
+		}
+	}
 }

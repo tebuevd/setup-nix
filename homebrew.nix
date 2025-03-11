@@ -27,6 +27,7 @@
       "superhuman"
       "tableplus"
       "tailscale"
+      "visual-studio-code"
       "vlc"
       "zed"
       "zoom"
