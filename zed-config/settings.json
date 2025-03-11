@@ -1,4 +1,6 @@
 {
+  "load_direnv": "direct",
+
   // AI
 
   "assistant": {
