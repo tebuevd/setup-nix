@@ -9,6 +9,23 @@ This repository contains my personal Nix Darwin configuration for macOS. It uses
 - VS Code configuration with extensions
 - Git, ZSH, and other developer tools
 
+## Structure
+
+The configuration is organized into the following modules:
+
+- `flake.nix`: Main entry point with inputs and outputs
+- `hosts/`: Host-specific configuration
+- `darwin/`: macOS-specific system configuration
+  - `system/`: System-level settings (keyboard, preferences, security, etc.)
+  - `apps/`: Application-specific configuration (homebrew, etc.)
+- `home/`: User-specific configuration managed by home-manager
+  - `packages.nix`: User packages
+  - `shell/`: Shell configuration (zsh)
+  - `programs/`: User programs configuration (git, tmux, etc.)
+    - `terminals/`: Terminal emulators configuration (ghostty)
+  - `editors/`: Code editor configuration (vim, vscode, zed)
+- `config/`: Configuration files for various applications
+
 ## Getting Started
 
 ### Prerequisites
@@ -28,10 +45,10 @@ This repository contains my personal Nix Darwin configuration for macOS. It uses
 
 2. Create your personal configuration:
    ```bash
-   cp nix/local.example.nix nix/local.nix
+   cp local.example.nix local.nix
    ```
 
-3. Edit `nix/local.nix` with your personal information:
+3. Edit `local.nix` with your personal information:
    ```nix
    {
      hostname = "your-macbook";      # Your machine's hostname
@@ -39,18 +56,13 @@ This repository contains my personal Nix Darwin configuration for macOS. It uses
      fullName = "Your Full Name";    # Your name for Git commits
      email = "your.email@example.com"; # Your primary email
      githubEmail = "your.github.email@example.com"; # Email for GitHub
+     architecture = "aarch64-darwin"; # or "x86_64-darwin" for Intel Macs
    }
    ```
 
-4. Add the file to Git in a special way to make it visible to Nix but not committed:
+4. Build and activate the configuration:
    ```bash
-   git add --intent-to-add nix/local.nix
-   git update-index --assume-unchanged nix/local.nix
-   ```
-
-5. Build and activate the configuration (`{hostname}` from `local.nix`):
-   ```bash
-   nix run nix-darwin/master#darwin-rebuild -- switch --flake .#{hostname}
+   nix run nix-darwin/master#darwin-rebuild -- switch --flake .
    ```
 
 ### Updating
@@ -71,18 +83,19 @@ switch
 
 ## Customization
 
-- Add packages in `flake.nix` under `environment.systemPackages` or `home.packages`
-- Configure additional macOS settings in the `system.defaults` section
-- Add Homebrew packages in `homebrew.nix`
-- Customize VS Code extensions in the `programs.vscode` section
+- Add packages in the appropriate module files
+- Configure additional macOS settings in the `darwin/system` directory
+- Add Homebrew packages in `darwin/apps/homebrew.nix`
+- Add new modules by creating files in the appropriate directories and importing them in the corresponding `default.nix`
+
+## Adding New Configuration
+
+1. Add new nix files to the appropriate directory based on the type of configuration
+2. Import the new file in the corresponding `default.nix`
+3. Rebuild with `switch` command
 
 ## Troubleshooting
 
 If you see errors about the hostname not being found in the flake outputs:
-- Check that your `nix/local.nix` file contains the correct hostname
-- Ensure the file is being tracked by Git (with the commands in step 4)
+- Check that your `local.nix` file contains the correct hostname
 - Try running with the full hostname: `darwin-rebuild switch --flake ~/.config/nix#your-hostname`
-
-## License
-
-[MIT License](LICENSE)
