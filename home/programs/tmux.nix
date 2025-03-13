@@ -57,6 +57,9 @@
       # open panes in the same directory
       bind '"' split-window -v -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
+
+      # set status bar
+      set -g status-position top
     '';
   };
 }
