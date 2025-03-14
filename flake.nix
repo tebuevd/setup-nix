@@ -18,6 +18,8 @@
     # Pin to a commit to make copilot extension works
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions/529e0a84346f34db86ea24203c0b2e975fefb4f2";
     mac-app-util.url = "github:hraban/mac-app-util";
+
+    bsky.url = "github:tebuevd/bsky";
   };
 
   outputs =
@@ -29,11 +31,14 @@
       nix-homebrew,
       nix-vscode-extensions,
       nixpkgs,
+      bsky,
     }:
     let
       # Import host configuration
       host = import ./hosts/default.nix { inherit (nixpkgs) lib; };
-      specialArgs = host._module.args // { inherit nix-vscode-extensions; };
+      specialArgs = host._module.args // {
+        inherit nix-vscode-extensions;
+      };
       hostname = specialArgs.hostname;
       username = specialArgs.username;
       architecture = specialArgs.architecture;
@@ -41,11 +46,11 @@
     {
       darwinConfigurations."${hostname}" = nix-darwin.lib.darwinSystem {
         inherit specialArgs;
-        
+
         modules = [
           ./hosts/default.nix
           ./darwin
-          
+
           # Homebrew configuration
           nix-homebrew.darwinModules.nix-homebrew
           {
@@ -56,10 +61,10 @@
               autoMigrate = true;
             };
           }
-          
+
           # Mac App Util
           mac-app-util.darwinModules.default
-          
+
           # Home Manager configuration
           home-manager.darwinModules.home-manager
           {
@@ -67,10 +72,12 @@
             home-manager.useUserPackages = true;
             home-manager.verbose = true;
             home-manager.users."${username}" = import ./home;
-            home-manager.sharedModules = [ 
-              mac-app-util.homeManagerModules.default 
+            home-manager.sharedModules = [
+              mac-app-util.homeManagerModules.default
             ];
-            home-manager.extraSpecialArgs = specialArgs;
+            home-manager.extraSpecialArgs = specialArgs // {
+              inherit bsky;
+            };
           }
         ];
       };

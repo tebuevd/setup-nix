@@ -1,7 +1,12 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  bsky,
+  ...
+}:
 
 {
   home.packages = with pkgs; [
+    caddy
     claude-code
     home-manager
     htop
@@ -14,6 +19,7 @@
     uv
     typescript
     tmux
+    bsky.packages.${system}.default
   ];
 
   home.sessionVariables = {
