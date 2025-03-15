@@ -8,6 +8,7 @@
   home.packages = with pkgs; [
     caddy
     claude-code
+    delta
     home-manager
     htop
     nil

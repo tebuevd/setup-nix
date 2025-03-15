@@ -5,7 +5,10 @@
     onActivation.cleanup = "uninstall";
 
     taps = [ ];
-    brews = [ "cowsay" ];
+    brews = [
+      "cowsay"
+      "mactop"
+    ];
     casks = [
       "1password"
       "bruno"

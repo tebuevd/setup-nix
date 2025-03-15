@@ -1,8 +1,20 @@
-{ fullName, githubEmail, ... }:
+{
+  fullName,
+  githubEmail,
+  pkgs,
+  ...
+}:
 
 {
   programs.git = {
     enable = true;
+    delta = {
+      enable = true;
+      package = pkgs.delta;
+      options = {
+        side-by-side = true;
+      };
+    };
     userName = fullName;
     userEmail = githubEmail;
 
