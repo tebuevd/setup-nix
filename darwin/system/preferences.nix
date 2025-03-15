@@ -3,6 +3,7 @@
 {
   system.defaults = {
     NSGlobalDomain = {
+      AppleFontSmoothing = 0;
       ApplePressAndHoldEnabled = false;
       "com.apple.swipescrolldirection" = false; # turn off natural scrolling
     };
