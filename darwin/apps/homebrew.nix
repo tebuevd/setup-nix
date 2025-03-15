@@ -23,6 +23,7 @@
       "orion"
       "raycast"
       "reflect"
+      "screen-studio"
       "secretive"
       "signal"
       "shottr"

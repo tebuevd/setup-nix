@@ -1,4 +1,4 @@
-{ 
+{
   pkgs,
   nix-vscode-extensions,
   username,
