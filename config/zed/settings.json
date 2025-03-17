@@ -15,6 +15,9 @@
 	"tab_size": 2,
 	"ui_font_size": 16,
 	"vim_mode": true,
+	"vim": {
+		"use_system_clipboard": "on_yank"
+	},
 	// Theme
 	"theme": {
 		"mode": "system",

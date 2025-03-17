@@ -19,6 +19,7 @@
       "ghostty"
       "google-chrome"
       "imazing"
+      "ollama"
       "omnidisksweeper"
       "orion"
       "raycast"
