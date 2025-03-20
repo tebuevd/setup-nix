@@ -16,10 +16,11 @@
     nixfmt-rfc-style
     nodejs_22
     pnpm_10
-    python313
-    uv
-    typescript
+    python312
+    ripgrep
     tmux
+    typescript
+    uv
     bsky.packages.${system}.default
   ];
 
