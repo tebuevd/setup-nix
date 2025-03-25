@@ -11,6 +11,7 @@
     delta
     home-manager
     htop
+    neovim
     nil
     nixd
     nixfmt-rfc-style

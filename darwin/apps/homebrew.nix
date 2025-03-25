@@ -17,6 +17,7 @@
       "cyberduck"
       "firefox"
       "ghostty"
+      "granola"
       "google-chrome"
       "imazing"
       "leader-key"
