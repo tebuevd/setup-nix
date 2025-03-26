@@ -6,8 +6,10 @@
 
     taps = [
       "nikitabobko/tap"
+      "FelixKratz/formulae"
     ];
     brews = [
+      "borders"
       "cowsay"
       "mactop"
     ];
