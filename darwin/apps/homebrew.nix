@@ -2,14 +2,17 @@
 {
   homebrew = {
     enable = true;
-    onActivation.cleanup = "uninstall";
+    onActivation.cleanup = "none";
 
-    taps = [ ];
+    taps = [
+      "nikitabobko/tap"
+    ];
     brews = [
       "cowsay"
       "mactop"
     ];
     casks = [
+      "aerospace"
       "1password"
       "bruno"
       "cryptomator"
