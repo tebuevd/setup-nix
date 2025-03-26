@@ -6,5 +6,6 @@
     ./git.nix
     ./tmux.nix
     ./terminals
+    ./nvim.nix
   ];
 }

@@ -20,10 +20,15 @@
     mac-app-util.url = "github:hraban/mac-app-util";
 
     bsky.url = "github:tebuevd/bsky";
+
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    inputs@{
+    {
       self,
       home-manager,
       mac-app-util,
@@ -32,6 +37,7 @@
       nix-vscode-extensions,
       nixpkgs,
       bsky,
+      nvf,
     }:
     let
       # Import host configuration
@@ -74,6 +80,7 @@
             home-manager.users."${username}" = import ./home;
             home-manager.sharedModules = [
               mac-app-util.homeManagerModules.default
+              nvf.homeManagerModules.default
             ];
             home-manager.extraSpecialArgs = specialArgs // {
               inherit bsky;
