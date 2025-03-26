@@ -60,6 +60,11 @@
 
       # set status bar
       set -g status-position top
+
+      # recognize ESC immediately (don't wait for other keys for key combo)
+      set -g escape-time 0
+
+      set-option -g default-terminal "screen-256color"
     '';
   };
 }

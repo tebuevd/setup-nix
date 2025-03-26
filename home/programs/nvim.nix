@@ -18,6 +18,12 @@
       vim.languages.nix.format.package = pkgs.nixfmt-rfc-style;
       vim.languages.nix.format.type = "nixfmt";
 
+      vim.languages.ts.enable = true;
+      vim.languages.ts.lsp.enable = true;
+      vim.languages.ts.format.enable = true;
+
+      vim.lsp.mappings.goToDefinition = "gd";
+
       vim.telescope.enable = true;
     };
   };
