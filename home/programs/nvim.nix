@@ -8,6 +8,8 @@
       vim.theme.name = "dracula";
       vim.theme.style = "dark";
 
+      vim.autocomplete.blink-cmp.enable = true;
+
       # adds format-on-save among other things
       vim.formatter.conform-nvim.enable = true;
 
