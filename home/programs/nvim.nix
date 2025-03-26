@@ -24,6 +24,13 @@
       vim.languages.ts.lsp.enable = true;
       vim.languages.ts.format.enable = true;
 
+      vim.languages.python.enable = true;
+      vim.languages.python.lsp.enable = true;
+      vim.languages.python.lsp.server = "basedpyright";
+      vim.languages.python.format.enable = true;
+      # vim.languages.python.format.package = pkgs.ruff;
+      # vim.languages.python.format.type = "ruff";
+
       vim.lsp.mappings.goToDefinition = "gd";
 
       vim.telescope.enable = true;

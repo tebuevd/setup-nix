@@ -19,6 +19,7 @@
     pnpm_10
     python312
     ripgrep
+    ruff
     tmux
     typescript
     uv
