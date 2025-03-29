@@ -219,12 +219,18 @@ run = 'move-node-to-workspace 3'
 if.app-id = 'com.apple.Music'
 run = 'move-node-to-workspace M'
 
+# Always floating apps
+
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
 run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.findmy'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.stocks'
 run = 'layout floating'
 
 [[on-window-detected]]
