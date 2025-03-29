@@ -9,6 +9,7 @@
     caddy
     claude-code
     delta
+    fd
     home-manager
     htop
     neovim

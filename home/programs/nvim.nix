@@ -69,7 +69,19 @@
       };
 
       vim.lsp.mappings.goToDefinition = "gd";
-      vim.telescope.enable = true;
+      vim.telescope = {
+        enable = true;
+        setupOpts.pickers.find_files = {
+          hidden = true;
+          find_command = [
+            "${pkgs.ripgrep}/bin/rg"
+            "--files"
+            "--hidden"
+            "--glob=!**/.git/*"
+            "--sort=path"
+          ];
+        };
+      };
 
       vim.luaConfigPost = ''
         vim.o.scrolloff = 5
