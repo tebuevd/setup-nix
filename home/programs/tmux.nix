@@ -44,8 +44,10 @@
       bind l select-pane -R
 
       # Vim-style window navigation
-      bind -r C-h select-window -t :-
-      bind -r C-l select-window -t :+
+      # Currently uncommented, because I'd like to use the default
+      # n - next, p - previous
+      bind -r p select-window -t :-
+      bind -r n select-window -t :+
 
       # set vi-mode
       set-window-option -g mode-keys vi
