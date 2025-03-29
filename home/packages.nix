@@ -20,6 +20,7 @@
     python312
     ripgrep
     ruff
+    tree-sitter
     tmux
     typescript
     uv
