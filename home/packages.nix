@@ -21,6 +21,7 @@
     python312
     ripgrep
     ruff
+    rustup
     tree-sitter
     tmux
     typescript

@@ -64,6 +64,24 @@
         ts.lsp.enable = true;
         ts.format.enable = true;
 
+        rust = {
+          enable = true;
+          lsp = {
+            enable = true;
+            opts = ''
+              ['rust-analyzer'] = {
+                cargo = {allFeature = true},
+                checkOnSave = true,
+                procMacro = {
+                  enable = true,
+                },
+              },
+            '';
+          };
+
+          format.enable = true;
+        };
+
         python.enable = true;
         python.lsp.enable = true;
         python.lsp.server = "basedpyright";
