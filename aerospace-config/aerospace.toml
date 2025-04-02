@@ -236,3 +236,11 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'com.timpler.screenstudio'
 run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.mr-brightside.ParcelOSX'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'excalidraw'
+run = 'move-node-to-workspace D'
