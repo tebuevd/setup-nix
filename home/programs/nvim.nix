@@ -12,6 +12,10 @@
       vim.theme.name = "dracula";
       vim.theme.style = "dark";
 
+      vim.additionalRuntimePaths = [
+        ../../nvim-config
+      ];
+
       vim.autocomplete.blink-cmp.enable = true;
       vim.autocomplete.blink-cmp.mappings.close = null;
       vim.autocomplete.blink-cmp.mappings.complete = null;
@@ -35,7 +39,6 @@
         ];
       };
 
-      # adds format-on-save among other things
       vim.formatter.conform-nvim.enable = true;
 
       vim.languages = {
@@ -83,10 +86,8 @@
         };
       };
 
-      vim.luaConfigPost = ''
-        vim.o.scrolloff = 5
-        -- press ESC to clear search result highlights when in Normal mode
-        vim.api.nvim_set_keymap('n', '<Esc>', ':nohlsearch<CR>', { noremap = true, silent = true })
+      vim.luaConfigRC.myconfig = ''
+        require("myconfig")
       '';
     };
   };
