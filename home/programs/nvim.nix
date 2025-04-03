@@ -50,6 +50,8 @@
         html.enable = true;
         css.enable = true;
 
+        lua.enable = true;
+
         tailwind.enable = true;
         tailwind.lsp.enable = true;
 
