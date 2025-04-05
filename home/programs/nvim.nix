@@ -8,6 +8,12 @@
   programs.nvf = {
     enable = true;
     settings = {
+      vim.extraPlugins = with pkgs.vimPlugins; {
+        caddyfile = {
+          package = vim-caddyfile;
+        };
+      };
+
       vim.theme.enable = true;
       vim.theme.name = "dracula";
       vim.theme.style = "dark";
