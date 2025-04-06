@@ -8,11 +8,6 @@
   programs.nvf = {
     enable = true;
     settings = {
-      vim.extraPlugins = with pkgs.vimPlugins; {
-        caddyfile = {
-          package = vim-caddyfile;
-        };
-      };
 
       vim.theme.enable = true;
       vim.theme.name = "dracula";
@@ -22,9 +17,32 @@
         ../../nvim-config
       ];
 
+      vim.assistant.copilot = {
+        enable = true;
+        mappings = {
+          suggestion.accept = "<M-;>";
+        };
+        setupOpts.copilot_node_command = "${pkgs.nodejs_22.out}/bin/node";
+      };
+
       vim.autocomplete.blink-cmp.enable = true;
       vim.autocomplete.blink-cmp.mappings.close = null;
       vim.autocomplete.blink-cmp.mappings.complete = null;
+      vim.autocomplete.blink-cmp.sourcePlugins = {
+        copilot = {
+          enable = true;
+          package = pkgs.vimPlugins.blink-copilot;
+          module = "blink-copilot";
+        };
+      };
+      vim.autocomplete.blink-cmp.setupOpts.sources.providers = {
+        copilot = {
+          name = "copilot";
+          module = "blink-copilot";
+          score_offset = 100;
+          async = true;
+        };
+      };
 
       vim.autocomplete.blink-cmp.setupOpts.keymap = {
         preset = "none";
@@ -109,6 +127,12 @@
             "--glob=!**/.git/*"
             "--sort=path"
           ];
+        };
+      };
+
+      vim.extraPlugins = with pkgs.vimPlugins; {
+        "vim-caddyfile" = {
+          package = vim-caddyfile;
         };
       };
 
