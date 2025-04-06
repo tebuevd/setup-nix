@@ -1,9 +1,5 @@
 { pkgs, ... }:
 
-# NOTES:
-# - To manually format, run `:lua vim.lsp.buf.format()`
-#
-
 {
   programs.nvf = {
     enable = true;
