@@ -219,6 +219,10 @@ run = 'move-node-to-workspace 3'
 if.app-id = 'com.apple.Music'
 run = 'move-node-to-workspace M'
 
+[[on-window-detected]]
+if.app-name-regex-substring = 'excalidraw'
+run = 'move-node-to-workspace D'
+
 # Always floating apps
 
 [[on-window-detected]]
@@ -242,5 +246,5 @@ if.app-id = 'com.mr-brightside.ParcelOSX'
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'excalidraw'
-run = 'move-node-to-workspace D'
+if.app-id = 'com.granola.app'
+run = 'layout floating'
