@@ -1,9 +1,42 @@
-{ pkgs, ... }:
-
+{ lib, pkgs, ... }:
+let
+  inherit (lib.nvim.binds) mkKeymap;
+in
 {
   programs.nvf = {
     enable = true;
     settings = {
+      vim = {
+        keymaps = [
+          (mkKeymap "n" "<leader>n"
+            # lua
+            ''
+              function()
+                if Snacks.config.picker and Snacks.config.picker.enabled then
+                  Snacks.picker.notifications()
+                else
+                  Snacks.notifier.show_history()
+                end
+              end
+            ''
+            {
+              desc = "Notification History";
+              lua = true;
+              unique = true;
+            }
+          )
+        ];
+      };
+
+      vim.utility.snacks-nvim = {
+        enable = true;
+        setupOpts = {
+          bigfile.enabled = true;
+          input.enabled = true;
+          notifier.enabled = true;
+          picker.enabled = true;
+        };
+      };
 
       vim.theme.enable = true;
       vim.theme.name = "dracula";
