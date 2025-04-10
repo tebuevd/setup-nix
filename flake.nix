@@ -71,7 +71,7 @@
               nvf.homeManagerModules.default
             ];
             home-manager.extraSpecialArgs = specialArgs // {
-              inherit bsky;
+              inherit bsky nvf;
             };
           }
         ];
