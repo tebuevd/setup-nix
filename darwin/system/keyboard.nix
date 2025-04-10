@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
   system.keyboard.enableKeyMapping = true;

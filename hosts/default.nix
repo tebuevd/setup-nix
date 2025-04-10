@@ -1,4 +1,4 @@
-{ lib, ... }:
+_:
 
 let
   defaults = {
@@ -13,12 +13,14 @@ let
   local = if builtins.pathExists ../local.nix then import ../local.nix else defaults;
 in
 {
-  _module.args = {
-    hostname = local.hostname;
-    username = local.username;
-    fullName = local.fullName;
-    email = local.email;
-    githubEmail = local.githubEmail;
-    architecture = local.architecture;
+  _module.args = with local; {
+    inherit
+      hostname
+      username
+      fullName
+      email
+      githubEmail
+      architecture
+      ;
   };
 }

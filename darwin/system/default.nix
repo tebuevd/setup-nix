@@ -1,6 +1,5 @@
 {
   pkgs,
-  nix-vscode-extensions,
   username,
   ...
 }:
@@ -37,5 +36,4 @@
   '';
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.overlays = [ nix-vscode-extensions.overlays.default ];
 }

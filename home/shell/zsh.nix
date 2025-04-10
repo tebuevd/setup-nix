@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
   programs.zsh = {
@@ -10,11 +10,13 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     plugins = [ ];
-    oh-my-zsh.enable = true;
-    oh-my-zsh.plugins = [
-      "git"
-      "sudo"
-    ];
-    oh-my-zsh.theme = "robbyrussell";
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "git"
+        "sudo"
+      ];
+      theme = "robbyrussell";
+    };
   };
 }

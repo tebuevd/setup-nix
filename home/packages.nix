@@ -6,6 +6,7 @@
 
 {
   home.packages = with pkgs; [
+    bsky.packages.${system}.default
     caddy
     claude-code
     delta
@@ -22,11 +23,10 @@
     ripgrep
     ruff
     rustup
-    tree-sitter
     tmux
+    tree-sitter
     typescript
     uv
-    bsky.packages.${system}.default
   ];
 
   home.sessionVariables = {
