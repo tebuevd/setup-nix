@@ -25,6 +25,19 @@ in
               unique = true;
             }
           )
+          (mkKeymap "n" "<leader>yle"
+            # lua
+            ''
+              function()
+                require("myconfig.diagnostics").copy_diagnostics_under_cursor()
+              end
+            ''
+            {
+              desc = "Copy diagnostics under cursor to clipboard";
+              lua = true;
+              unique = true;
+            }
+          )
         ];
       };
 
