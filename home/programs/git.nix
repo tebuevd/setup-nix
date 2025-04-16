@@ -13,6 +13,7 @@
       package = pkgs.delta;
       options = {
         side-by-side = true;
+        tabs = 2;
       };
     };
     userName = fullName;
