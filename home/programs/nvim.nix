@@ -8,6 +8,20 @@ in
     settings = {
       vim = {
         keymaps = [
+          {
+            key = "<leader>y";
+            mode = "v";
+            action = "\"+y";
+            silent = true;
+            noremap = true;
+          }
+          {
+            key = "<leader>yy";
+            mode = "n";
+            action = "\"+yy";
+            silent = true;
+            noremap = true;
+          }
           (mkKeymap "n" "<leader>n"
             # lua
             ''
