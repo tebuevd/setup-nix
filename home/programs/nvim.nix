@@ -7,6 +7,8 @@ in
     enable = true;
     settings = {
       vim = {
+        filetree.nvimTree.enable = true;
+
         keymaps = [
           {
             key = "<leader>y";
@@ -55,13 +57,29 @@ in
         ];
       };
 
-      vim.utility.snacks-nvim = {
-        enable = true;
-        setupOpts = {
-          bigfile.enabled = true;
-          input.enabled = true;
-          notifier.enabled = true;
-          picker.enabled = true;
+      vim.visuals.nvim-web-devicons.enable = true;
+
+      vim.utility = {
+        oil-nvim = {
+          enable = true;
+          setupOpts = {
+            keymaps = {
+              "-" = {
+                action = "actions.parent";
+                mode = "n";
+              };
+            };
+          };
+        };
+
+        snacks-nvim = {
+          enable = true;
+          setupOpts = {
+            bigfile.enabled = true;
+            input.enabled = true;
+            notifier.enabled = true;
+            picker.enabled = true;
+          };
         };
       };
 
@@ -118,7 +136,6 @@ in
           "hide"
         ];
       };
-
       vim.formatter.conform-nvim.enable = true;
 
       vim.languages = {
