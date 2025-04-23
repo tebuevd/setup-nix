@@ -24,7 +24,8 @@ _: {
       "google-chrome"
       "granola"
       "imazing"
-      "leader-key"
+      "jordanbaird-ice"
+      # "leader-key" -- not using right now
       "ollama"
       "omnidisksweeper"
       "orion"
