@@ -7,7 +7,10 @@ in
     enable = true;
     settings = {
       vim = {
-        filetree.nvimTree.enable = true;
+        filetree.nvimTree = {
+          enable = true;
+          openOnSetup = false;
+        };
 
         keymaps = [
           {
@@ -21,6 +24,20 @@ in
             key = "<leader>yy";
             mode = "n";
             action = "\"+yy";
+            silent = true;
+            noremap = true;
+          }
+          {
+            key = "<Tab>";
+            mode = "n";
+            action = ":bnext<CR>";
+            silent = true;
+            noremap = true;
+          }
+          {
+            key = "<S-Tab>";
+            mode = "n";
+            action = ":bprev<CR>";
             silent = true;
             noremap = true;
           }
