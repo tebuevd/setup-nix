@@ -14,6 +14,7 @@ _:
       enable = true;
       plugins = [
         "git"
+        "npm"
         "sudo"
       ];
       theme = "robbyrussell";
