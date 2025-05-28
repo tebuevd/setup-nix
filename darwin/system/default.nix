@@ -25,7 +25,9 @@
   nix.enable = false; # required when using Determinate Systems' Nix
   nix.settings = {
     experimental-features = "nix-command flakes";
-    trusted-users = [ username ];
+    trusted-users = [
+      "admin"
+    ];
   };
 
   system.configurationRevision = null;

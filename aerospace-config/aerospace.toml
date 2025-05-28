@@ -226,6 +226,10 @@ run = 'move-node-to-workspace M'
 if.app-name-regex-substring = 'excalidraw'
 run = 'move-node-to-workspace D'
 
+[[on-window-detected]]
+if.app-id = 'dev.zed.Zed'
+run = 'move-node-to-workspace Z'
+
 # Always floating apps
 
 [[on-window-detected]]
@@ -250,4 +254,12 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.granola.app'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.1password.1password'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Passwords'
 run = 'layout floating'

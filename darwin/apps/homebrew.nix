@@ -12,10 +12,14 @@ _: {
       "cowsay"
       "mactop"
     ];
+    caskArgs = {
+      appdir = "~/Applications";
+    };
     casks = [
-      "1password"
+      # "1password" -- install via website
       "aerospace"
       "bruno"
+      "chatgpt"
       "cryptomator"
       "cursor"
       "cyberduck"
