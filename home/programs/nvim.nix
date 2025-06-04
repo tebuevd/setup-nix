@@ -71,6 +71,21 @@ in
               unique = true;
             }
           )
+          (mkKeymap "n" "<leader>lf"
+            # lua
+            ''
+              function()
+                require('conform').format({
+                  lsp_format = "fallback"
+                })
+              end
+            ''
+            {
+              desc = "Format using conform and LSP as fallback";
+              lua = true;
+              unique = true;
+            }
+          )
         ];
       };
 
@@ -155,8 +170,14 @@ in
       };
       vim.formatter.conform-nvim.enable = true;
 
+      vim.lsp = {
+        enable = true;
+        formatOnSave = true;
+        mappings.goToDefinition = "gd";
+        mappings.format = null;
+      };
+
       vim.languages = {
-        enableLSP = true;
         enableFormat = true;
         enableTreesitter = true;
         enableExtraDiagnostics = true;
@@ -205,7 +226,6 @@ in
         python.format.type = "ruff";
       };
 
-      vim.lsp.mappings.goToDefinition = "gd";
       vim.telescope = {
         enable = true;
         setupOpts.pickers.find_files = {
