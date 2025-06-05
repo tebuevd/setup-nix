@@ -229,6 +229,10 @@ run = 'move-node-to-workspace D'
 if.app-id = 'dev.zed.Zed'
 run = 'move-node-to-workspace Z'
 
+[[on-window-detected]]
+if.app-id = 'app.reflect.ReflectDesktop'
+run = 'move-node-to-workspace R'
+
 # Always floating apps
 
 [[on-window-detected]]
