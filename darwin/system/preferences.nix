@@ -2,6 +2,9 @@
 
 {
   system.defaults = {
+    WindowManager = {
+      EnableStandardClickToShowDesktop = false;
+    };
     NSGlobalDomain = {
       AppleFontSmoothing = 0;
       ApplePressAndHoldEnabled = false;
